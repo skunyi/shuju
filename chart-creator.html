@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>    <meta charset="UTF-8">
+    <title>图表创建 - 数据可视化图表系统</title><link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/charts.css">
+    <link rel="stylesheet" href="styles/messages.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/icons.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 头部导航 -->
+        <header class="header">
+            <h1>图表创建</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-btn">首页</a>
+                <a href="data-manager.html" class="nav-btn">数据管理</a>
+                <a href="chart-creator.html" class="nav-btn active">图表创建</a>
+                <a href="dashboard.html" class="nav-btn">仪表盘</a>
+            </nav>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <div class="chart-creator-content">
+                <div class="creator-sidebar">
+                    <div class="creator-controls">
+                        <h3>图表配置</h3>
+                        <div class="form-group">
+                            <label for="chartType">图表类型:</label>
+                            <select id="chartType">
+                                <option value="bar">柱状图</option>
+                                <option value="line">折线图</option>
+                                <option value="pie">饼图</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="chartTitle">图表标题:</label>
+                            <input type="text" id="chartTitle" placeholder="输入图表标题">
+                        </div>
+                        <div class="form-group">
+                            <label for="colorScheme">配色方案:</label>
+                            <select id="colorScheme">
+                                <option value="default">默认</option>
+                                <option value="blue">蓝色系</option>
+                                <option value="green">绿色系</option>
+                                <option value="warm">暖色系</option>
+                            </select>
+                        </div>
+                    </div>                    <div class="data-selection-section">
+                        <div class="data-selection-header">
+                            <h3>数据选择</h3>
+                            <div class="selection-controls">
+                                <select id="categorySelect">
+                                    <option value="">按分类选择</option>
+                                    <option value="销售">销售</option>
+                                    <option value="市场">市场</option>
+                                    <option value="技术">技术</option>
+                                    <option value="财务">财务</option>
+                                    <option value="人事">人事</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                                <button id="selectCategoryBtn" class="btn btn-sm btn-info">全选分类</button>
+                                <button id="clearSelectionBtn" class="btn btn-sm btn-secondary">清空选择</button>
+                            </div>
+                        </div>
+                        <div id="availableDataList" class="available-data-list">
+                            <!-- 可选择的数据项将在这里显示 -->
+                        </div>
+                        <div id="noDataMessage" class="no-data-message" style="display: none;">
+                            <p>暂无可用数据</p>
+                            <a href="data-manager.html" class="btn btn-primary">去添加数据</a>
+                        </div>
+                    </div>                    <div class="creator-actions">
+                        <button class="btn btn-success" onclick="ChartCreator.saveChart()">保存图表</button>
+                        <button class="btn btn-secondary" onclick="ChartCreator.clearSelection()">清空选择</button>
+                    </div>
+                </div>
+
+                <div class="creator-main">
+                    <div class="creator-preview">
+                        <h3>预览</h3>
+                        <div class="preview-container">
+                            <canvas id="customChart" width="600" height="400"></canvas>
+                            <div id="previewPlaceholder" class="preview-placeholder">
+                                <div class="placeholder-icon">📊</div>
+                                <p>请选择数据来预览图表</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selected-data-section">
+                        <h3>已选择的数据</h3>
+                        <div id="selectedDataList" class="selected-data-list">
+                            <!-- 已选择的数据将在这里显示 -->
+                        </div>
+                        <div id="noSelectedMessage" class="no-selected-message">
+                            <p>还未选择任何数据</p>
+                        </div>
+                    </div>
+                </div>
+            </div>        </main>
+    </div>
+
+    <!-- 消息提示区域 -->
+    <div id="messageContainer" class="message-container"></div>    <!-- JavaScript模块 -->
+    <script src="js/utils.js"></script>
+    <script src="js/dataManager.js"></script>
+    <script src="js/chartRenderer.js"></script>
+    <script src="js/chartManager.js"></script>
+    <script src="js/dashboardManager.js"></script>
+    <script src="js/chartCreator.js"></script>
+    <script src="js/eventHandler.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

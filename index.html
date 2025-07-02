@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>    <meta charset="UTF-8">
+    <title>数据可视化图表系统</title><link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/messages.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 头部导航 -->
+        <header class="header">
+            <h1>数据可视化图表系统</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-btn active">首页</a>
+                <a href="data-manager.html" class="nav-btn">数据管理</a>
+                <a href="chart-creator.html" class="nav-btn">图表创建</a>
+                <a href="dashboard.html" class="nav-btn">仪表盘</a>
+            </nav>
+        </header>        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <div class="home-content">
+                <section class="hero-section">
+                    <h2>欢迎使用数据可视化图表系统</h2>
+                    <p>创建美观、交互式的图表来展示您的数据</p>
+                </section>
+
+                <section class="features-section">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>数据管理</h3>
+                        <p>轻松添加、编辑和管理您的数据</p>
+                        <a href="data-manager.html" class="btn btn-primary">开始管理</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>图表创建</h3>
+                        <p>选择数据创建各种类型的图表</p>
+                        <a href="chart-creator.html" class="btn btn-primary">创建图表</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>仪表盘</h3>
+                        <p>查看和管理您创建的所有图表</p>
+                        <a href="dashboard.html" class="btn btn-primary">查看仪表盘</a>
+                    </div>
+                </section>
+
+                <section class="quick-start-section">
+                    <h3>快速开始</h3>                    <ol class="quick-start-steps">
+                        <li onclick="window.location.href='data-manager.html'" style="cursor: pointer;">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>添加数据</h4>
+                                <p>在数据管理页面添加您要展示的数据</p>
+                                <small class="step-action">点击立即添加数据 →</small>
+                            </div>
+                        </li>
+                        <li onclick="window.location.href='chart-creator.html'" style="cursor: pointer;">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>创建图表</h4>
+                                <p>选择数据和图表类型，创建个性化图表</p>
+                                <small class="step-action">点击立即创建图表 →</small>
+                            </div>
+                        </li>
+                        <li onclick="window.location.href='dashboard.html'" style="cursor: pointer;">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>查看结果</h4>
+                                <p>在仪表盘中查看和管理您的图表</p>
+                                <small class="step-action">点击查看仪表盘 →</small>
+                            </div>
+                        </li>
+                    </ol>                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
