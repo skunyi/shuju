@@ -1,0 +1,181 @@
+/* 首页样式 */
+
+.home-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-2);
+    transition: all 0.6s ease;
+}
+
+/* 英雄区域 */
+.hero-section {
+    text-align: center;
+    padding: var(--spacing-5) var(--spacing-3);
+    margin-bottom: var(--spacing-5);
+    background: linear-gradient(135deg, var(--primary-lighter), var(--primary-light));
+    border-radius: var(--border-radius-xl);
+    color: var(--primary-dark);
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: var(--spacing-3);
+    letter-spacing: -1px;
+}
+
+.hero-section p {
+    font-size: var(--font-size-lg);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 功能卡片 */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-5);
+}
+
+.feature-card {
+    background: var(--bg-primary);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-light);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-3);
+    opacity: 0.8;
+}
+
+.feature-card h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-3);
+    line-height: var(--line-height-lg);
+}
+
+.feature-card .btn {
+    width: auto;
+    padding: var(--spacing-2) var(--spacing-4);
+}
+
+/* 快速开始 */
+.quick-start-section {
+    background: var(--bg-primary);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+}
+
+.quick-start-section h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--spacing-2);
+}
+
+.quick-start-steps {
+    list-style: none;
+    counter-reset: step-counter;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quick-start-steps li {
+    counter-increment: step-counter;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+    padding: var(--spacing-3);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-start-steps li:hover {
+    transform: translateX(8px);
+    background: linear-gradient(90deg, var(--primary-lighter), var(--bg-primary));
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+}
+
+.quick-start-steps li:hover .step-number {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.quick-start-steps li:hover .step-action {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* 点击涟漪效果 */
+.click-ripple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes ripple-animation {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* 页面加载动画 */

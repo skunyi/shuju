@@ -1,0 +1,54 @@
+/* 头部导航样式 */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    text-align: center;
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-2xl);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+/* 导航样式 */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2);
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--border-radius-pill);
+    transition: var(--transition-base);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    font-weight: 600;
+}
+
+.nav-btn.active:hover {
+    background: var(--gray-100);
+    transform: none;
+}

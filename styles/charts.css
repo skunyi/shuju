@@ -1,0 +1,493 @@
+/* 图表创建器样式 */
+
+.chart-creator-content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: var(--spacing-4);
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 120px);
+}
+
+/* 侧边栏 */
+.creator-sidebar {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.creator-controls {
+    margin-bottom: var(--spacing-4);
+}
+
+.creator-controls h3 {
+    margin-bottom: var(--spacing-3);
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--spacing-2);
+}
+
+/* 数据选择区域 */
+.data-selection-section {
+    flex: 1;
+    margin-bottom: var(--spacing-3);
+}
+
+.data-selection-section h3 {
+    margin-bottom: var(--spacing-3);
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--spacing-2);
+}
+
+.available-data-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    background: var(--bg-secondary);
+}
+
+.available-data-item {
+    padding: var(--spacing-2);
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.available-data-item:last-child {
+    border-bottom: none;
+}
+
+.available-data-item:hover {
+    background: var(--primary-lighter);
+}
+
+.available-data-item.selected {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.available-data-item input[type="checkbox"] {
+    margin-right: var(--spacing-2);
+}
+
+.data-item-preview {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex: 1;
+}
+
+.data-item-color-preview {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.data-item-info-preview {
+    flex: 1;
+}
+
+.data-item-label-preview {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+}
+
+.data-item-value-preview {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.no-data-message {
+    text-align: center;
+    padding: var(--spacing-4);
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--border-color);
+}
+
+.no-data-message p {
+    margin-bottom: var(--spacing-3);
+}
+
+/* 创建器操作按钮 */
+.creator-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.creator-actions .btn {
+    width: 100%;
+}
+
+/* 主预览区域 */
+.creator-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.creator-preview {
+    flex: 1;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+}
+
+.creator-preview h3 {
+    margin-bottom: var(--spacing-3);
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--spacing-2);
+}
+
+.preview-container {
+    position: relative;
+    height: 400px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.preview-container.updating {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+.preview-container canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.preview-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-2);
+    opacity: 0.6;
+}
+
+.preview-placeholder p {
+    font-size: var(--font-size-lg);
+}
+
+/* 已选择数据区域 */
+.selected-data-section {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    max-height: 200px;
+}
+
+.selected-data-section h3 {
+    margin-bottom: var(--spacing-3);
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--spacing-2);
+}
+
+.selected-data-list {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.selected-data-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-fast);
+}
+
+.selected-data-item:hover {
+    background: var(--primary-lighter);
+    border-color: var(--primary-light);
+}
+
+.selected-data-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex: 1;
+}
+
+.selected-data-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.selected-data-details {
+    flex: 1;
+}
+
+.selected-data-label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+}
+
+.selected-data-value {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.selected-data-remove {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius);
+    transition: var(--transition-fast);
+}
+
+.selected-data-remove:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+.no-selected-message {
+    text-align: center;
+    padding: var(--spacing-3);
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--border-color);
+}
+
+/* 图表创建动画效果 */
+.chart-creation-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.chart-creation-animation.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.animation-content {
+    background: var(--bg-primary);
+    padding: var(--spacing-6);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.animation-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-3);
+    animation: pulse 1.5s infinite;
+}
+
+.animation-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.animation-message {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-4);
+}
+
+.animation-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--gray-200);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-3);
+}
+
+.animation-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    width: 0%;
+    transition: width 0.3s ease;
+    animation: shimmer 1.5s infinite;
+}
+
+/* 图表保存成功动画 */
+.chart-save-success {
+    background: var(--success-color);
+    color: white;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--border-radius-lg);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.chart-save-success.show {
+    opacity: 1;
+    visibility: visible;
+    animation: successBounce 0.6s ease;
+}
+
+/* 动画关键帧 */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+@keyframes successBounce {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes chartFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 数据选择项动画 */
+.data-checkbox-item {
+    transition: all 0.2s ease;
+}
+
+.data-checkbox-item:hover {
+    transform: translateX(3px);
+    background: var(--gray-50);
+}
+
+.data-checkbox-item.selected {
+    background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+    border-left: 3px solid var(--primary-color);
+}
+
+/* 选择动画效果 */
+.selection-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.selection-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.selection-ripple.animate::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* 图表创建器特有的分类选择控件样式 */
+.chart-creator-content .selection-controls {
+    min-width: 350px;
+    justify-content: flex-start;
+}
+
+.chart-creator-content .selection-controls select {
+    flex: 1;
+    min-width: 120px;
+    max-width: 150px;
+}
+
+.chart-creator-content .selection-controls .btn-sm {
+    flex: 0 0 auto;
+    margin-left: var(--spacing-1);
+}

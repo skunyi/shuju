@@ -1,0 +1,371 @@
+/* 表单样式 */
+
+/* 表单组 */
+.form-group {
+    margin-bottom: var(--spacing-3);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-1);
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* 输入框样式 */
+.form-control,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="color"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--spacing-2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    transition: var(--transition-base);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-control:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background: var(--gray-100);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* 选择框 */
+select {
+    cursor: pointer;
+    background-image: url("../images/icons/interface/dropdown-arrow.svg");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 32px;
+    appearance: none;
+}
+
+/* 文本域 */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* 表单操作按钮 */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+}
+
+/* 数据表单特殊样式 */
+.data-form {
+    background: var(--bg-secondary);
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-light);
+}
+
+.edit-form {
+    max-width: 500px;
+}
+
+/* 颜色选择器 */
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.color-picker-container input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.color-presets {
+    display: flex;
+    gap: var(--spacing-1);
+    flex-wrap: wrap;
+}
+
+.color-preset {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.color-preset:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow);
+}
+
+/* 数据管理页面样式 */
+.data-manager-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.data-input-section,
+.data-display-section,
+.data-import-section {
+    background: var(--bg-primary);
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+}
+
+.data-import-section {
+    grid-column: 1 / -1;
+}
+
+.data-import-section textarea {
+    margin-bottom: var(--spacing-2);
+}
+
+/* 数据列表 */
+.data-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.data-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-fast);
+}
+
+.data-item:hover {
+    background: var(--primary-lighter);
+    border-color: var(--primary-light);
+    transform: translateX(2px);
+}
+
+.data-item-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.data-item-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.data-item-details {
+    flex: 1;
+}
+
+.data-item-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.data-item-value {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.data-item-actions {
+    display: flex;
+    gap: var(--spacing-1);
+}
+
+/* 数据显示和选择控件样式 */
+
+/* 数据显示头部控件 */
+.data-display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+}
+
+.display-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.display-controls label {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.display-controls select {
+    width: auto;
+    min-width: 120px;
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-sm);
+}
+
+/* 数据选择头部控件 */
+.data-selection-header {
+    margin-bottom: var(--spacing-3);
+}
+
+.selection-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-2);
+    padding: var(--spacing-2);
+    background: var(--gray-50);
+    border-radius: var(--border-radius);
+    min-width: 100%;
+    justify-content: flex-start;
+}
+
+.selection-controls select {
+    width: auto;
+    min-width: 140px;
+    max-width: 160px;
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+}
+
+/* 按钮小尺寸样式 */
+.btn-sm {
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 85px;    text-align: center;
+}
+
+/* 数据分组显示 */
+.data-category-group {
+    margin-bottom: var(--spacing-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.data-category-header {
+    background: var(--gray-100);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-category-count {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+.data-category-items {
+    padding: var(--spacing-2);
+}
+
+/* Data列表项样式增强 */
+.data-item {
+    transition: all var(--transition-base);
+}
+
+.data-item.filtered-out {
+    display: none;
+}
+
+.data-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.data-item.animate-in {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.data-category-group.animate-in {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* 数据项高亮效果（用于数据管理页面） */
+.data-item.highlight-item {
+    background: linear-gradient(45deg, #ffeb3b, #ffc107) !important;
+    border: 2px solid #ff9800 !important;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6) !important;
+    animation: pulse-highlight 2s ease-in-out infinite !important;
+    transform: scale(1.02) !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+@keyframes pulse-highlight {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
+    }
+}
+
+.data-item.highlight-item .data-label {
+    color: #e65100 !important;
+    font-weight: 700 !important;
+}
+
+.data-item.highlight-item .data-value {
+    color: #bf360c !important;
+    font-weight: 600 !important;
+}
+
+/* 确保高亮项在分组中可见 */
+.data-category-group .data-item.highlight-item {
+    margin: var(--spacing-1) 0 !important;
+    border-radius: var(--border-radius) !important;
+}

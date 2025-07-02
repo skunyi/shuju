@@ -1,0 +1,703 @@
+/* 仪表盘样式 - 重新设计 */
+
+/* 仪表盘头部 */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-4);
+    padding-bottom: var(--spacing-3);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.dashboard-header h2 {
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin: 0;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+/* 图表网格 */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+
+/* 图表卡片 */
+.chart-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow);
+    transition: var(--transition-base);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+/* 图表卡片头部 */
+.chart-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-3);
+}
+
+.chart-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: var(--line-height-sm);
+}
+
+.chart-card-menu {
+    position: relative;
+}
+
+.chart-card-menu-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.chart-card-menu-btn:hover {
+    background: var(--gray-100);
+    color: var(--text-primary);
+}
+
+/* 图表预览区域 */
+.chart-card-preview {
+    height: 200px;
+    margin-bottom: var(--spacing-3);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.chart-card-preview canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 图表缩略图 */
+.chart-thumbnail {
+    height: 200px !important;
+    margin-bottom: var(--spacing-3) !important;
+    border-radius: var(--border-radius) !important;
+    overflow: hidden !important;
+    background: var(--bg-secondary) !important;
+    position: relative !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+.chart-thumbnail canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* 图表卡片信息 */
+.chart-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.chart-card-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: var(--spacing-2) !important;
+}
+
+.chart-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-1) !important;
+}
+
+.chart-type {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--spacing-1) !important;
+    background: var(--primary-lighter) !important;
+    color: var(--primary-dark) !important;
+    padding: var(--spacing-1) var(--spacing-2) !important;
+    border-radius: var(--border-radius-pill) !important;
+    font-weight: 500 !important;
+    font-size: var(--font-size-xs) !important;
+}
+
+.data-count {
+    font-size: var(--font-size-xs) !important;
+    color: var(--text-muted) !important;
+}
+
+.chart-update-time {
+    font-size: var(--font-size-xs) !important;
+    color: var(--text-muted) !important;
+    text-align: right !important;
+}
+
+.chart-title {
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+    line-height: var(--line-height-sm) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-5);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-xl);
+    border: 2px dashed var(--border-color);
+    margin: var(--spacing-4) 0;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-3);
+    opacity: 0.6;
+}
+
+.empty-state h3 {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+}
+
+.empty-state p {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-3);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 图表详情模态框 - 重新设计 */
+.chart-detail-modal {
+    max-width: 1400px !important;
+    width: 95vw !important;
+    height: 90vh !important;
+}
+
+.chart-detail-modal .modal-content {
+    height: 100%;
+    max-height: none;
+    background: var(--bg-primary);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-lg);
+}
+
+.chart-detail-modal .modal-header {
+    padding: var(--spacing-3);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.chart-detail-modal .modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.close-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.chart-detail-modal .modal-body {
+    flex: 1;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* 图表详情主要布局 */
+.chart-detail-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-3);
+    height: 100%;
+    padding: var(--spacing-3);
+}
+
+/* 左侧图表区域 */
+.chart-view-section {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chart-view-header {
+    padding: var(--spacing-2) var(--spacing-3);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.chart-view-header h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chart-canvas-container {
+    flex: 1;
+    padding: var(--spacing-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 400px;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.chart-canvas-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: var(--border-radius);
+    object-fit: contain;
+}
+
+.chart-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-muted);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.chart-loading.hidden {
+    display: none;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-light);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--spacing-2);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 右侧信息管理区域 */
+.chart-info-section {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 标签页 */
+.chart-info-tabs {
+    display: flex;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: var(--spacing-2) var(--spacing-1);
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tab-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+}
+
+/* 标签页内容 */
+.tab-content {
+    flex: 1;
+    padding: var(--spacing-3);
+    overflow-y: auto;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 图表信息标签页 */
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.info-input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    transition: var(--transition-fast);
+    background: white;
+}
+
+.info-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.info-text {
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2);
+}
+
+.stat-item {
+    padding: var(--spacing-2);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* 数据管理标签页 */
+.data-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    height: 100%;
+}
+
+.data-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.data-actions .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+}
+
+.data-list-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.data-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.data-item {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-2);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    transition: var(--transition-fast);
+}
+
+.data-item:hover {
+    border-color: var(--primary-light);
+    background: var(--bg-light);
+}
+
+.data-color-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.data-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.data-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.data-value {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.data-actions-btn {
+    display: flex;
+    gap: 4px;
+}
+
+.data-action-btn {
+    padding: 6px;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-action-btn:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.data-action-btn.delete:hover {
+    background: var(--danger-light);
+    color: var(--danger-color);
+}
+
+/* 图表卡片操作按钮 */
+.chart-actions {
+    display: flex;
+    gap: var(--spacing-1);
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.chart-card:hover .chart-actions {
+    opacity: 1;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0;
+}
+
+.btn-icon:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* 让删除按钮与其他按钮保持一致的颜色样式 */
+.btn-icon.btn-danger:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-color);
+}
+
+.btn-icon .icon-eye::before { content: "👁"; }
+.btn-icon .icon-copy::before { content: "📋"; }
+.btn-icon .icon-delete::before { content: "🗑"; }
+
+/* 底部操作按钮 */
+.modal-footer {
+    padding: var(--spacing-3);
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    display: flex;
+}
+
+.footer-right {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.modal-footer .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 10px 16px;
+}
+
+/* 弹窗动画效果 */
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.show .modal-content {
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+    opacity: 1;
+    }
+}
