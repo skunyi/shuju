@@ -1,0 +1,207 @@
+/* 图标样式定义 */
+
+/* SVG图标基础样式 */
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.icon-lg {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-sm {
+    width: 14px;
+    height: 14px;
+}
+
+/* 使用本地SVG文件的图标 */
+.icon-eye::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/interface/eye.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-edit::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/actions/edit.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-copy::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/actions/copy.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-delete::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/actions/delete.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-download::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/actions/download.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-save::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/actions/save.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-close::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/interface/close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 图表类型图标 */
+.icon-bar-chart::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/charts/bar-chart.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-line-chart::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/charts/line-chart.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-pie-chart::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/icons/charts/pie-chart.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 按钮内图标样式 */
+.btn .icon,
+.btn-icon .icon {
+    margin-right: 0;
+    transition: all 0.2s ease;
+}
+
+.btn .icon:not(:last-child) {
+    margin-right: var(--spacing-1);
+}
+
+.btn .icon-edit::before,
+.btn .icon-delete::before,
+.btn .icon-save::before,
+.btn .icon-download::before,
+.btn .icon-close::before {
+    transition: transform 0.2s ease;
+}
+
+/* 悬停效果 */
+.btn-icon:hover .icon::before,
+.btn:hover .icon::before {
+    transform: scale(1.1);
+}
+
+.btn-icon:hover .icon-delete::before {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.btn-icon:hover .icon-eye::before {
+    transform: scale(1.1);
+}
+
+.btn-icon:hover .icon-copy::before {
+    transform: scale(1.1) translateX(1px);
+}
+
+.btn-icon:active {
+    transform: translateY(1px);
+}
+
+/* 图标颜色变体 */
+.icon-primary { color: var(--primary-color); }
+.icon-secondary { color: var(--secondary-color); }
+.icon-success { color: var(--success-color); }
+.icon-danger { color: var(--danger-color); }
+.icon-warning { color: var(--warning-color); }
+.icon-info { color: var(--info-color); }
+
+/* 小型按钮图标样式 */
+.btn-small .icon-edit::before,
+.btn-small .icon-delete::before {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+}
+
+.btn-small:hover .icon-edit::before,
+.btn-small:hover .icon-delete::before {
+    transform: scale(1.1);
+}
+
+/* 确保图标和文字的对齐 */
+.btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-small .icon-edit::before,
+.btn-small .icon-delete::before {
+    margin-right: 0;
+}
